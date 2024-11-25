@@ -6,6 +6,7 @@ TagManager:
   tags:
   - goodNews
   - badNews
+  - person
   layers:
   - Default
   - TransparentFX

@@ -2,25 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.OpenXR.Input;
 
 public class raycastFocus : MonoBehaviour
 {
     public Camera fpsCam;
-    private float focusRange = 3f;
+    private float focusRange = 15f;
     public Transform focusEnd;
     RaycastHit hit;
     private LineRenderer laserLine;
     private float Timer;
     private int seconde = 1;
     private int moodMeter = 50;
-    // voeg als raycast iets raakt toe
+    public Text menuText;
+    private GameObject[] npcs;
     // Start is called before the first frame update
     void Start()
     {
         fpsCam = gameObject.GetComponent<Camera>();
         laserLine = GetComponentInChildren<LineRenderer>();
-        StartCoroutine(addSecond());
+        menuText.text = "good";
+        // alle gameobjecten die verschijnen en verdwijnen
+        npcs = GameObject.FindGameObjectsWithTag("person");
     }
 
     // Update is called once per frame
@@ -38,6 +42,7 @@ public class raycastFocus : MonoBehaviour
             if (hit.rigidbody != null)
             {
                 Timer += Time.deltaTime;
+                // Check if the object has the right tag attached
                 if (hit.transform.CompareTag("goodNews")) { 
                     if (Timer >= seconde)
                     {
@@ -70,22 +75,22 @@ public class raycastFocus : MonoBehaviour
             // If we did not hit anything, set the end of the line to a position directly in front of the camera at the distance of weaponRange
             laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * focusRange));
         }
-    }
-    IEnumerator addSecond()
-    {
-        while (true)
+
+        if (moodMeter >= 50)
         {
-            //Wait for 30 seconds
-            yield return new WaitForSeconds(30);
-
-            //Increment Speed
-            incrementMeter();
+            menuText.text = "good";
+            foreach (GameObject npc in npcs)
+            {
+                npc.SetActive(true); 
+            }
         }
-
-    }
-
-    void incrementMeter()
-    {
-        moodMeter = moodMeter + 1;
+        if (moodMeter < 50)
+        {
+            menuText.text = "bad";
+            foreach (GameObject npc in npcs)
+            {
+                npc.SetActive(false);
+            }
+        }
     }
 }
