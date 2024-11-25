@@ -38,12 +38,30 @@ public class raycastFocus : MonoBehaviour
             if (hit.rigidbody != null)
             {
                 Timer += Time.deltaTime;
-
-                if (Timer >= seconde)
+                if (hit.transform.CompareTag("goodNews")) { 
+                    if (Timer >= seconde)
+                    {
+                        Timer = 0f;
+                        moodMeter = moodMeter + 1;
+                        if (moodMeter > 100)
+                        {
+                            moodMeter = 100;
+                        }
+                        Debug.Log(moodMeter);
+                    }
+                }
+                if (hit.transform.CompareTag("badNews"))
                 {
-                    Timer = 0f;
-                    moodMeter = moodMeter + 1;
-                    Debug.Log(moodMeter);
+                    if (Timer >= seconde)
+                    {
+                        Timer = 0f;
+                        moodMeter = moodMeter - 1;
+                        if (moodMeter < 0)
+                        {
+                            moodMeter = 0;
+                        }
+                        Debug.Log(moodMeter);
+                    }
                 }
             }
         }
