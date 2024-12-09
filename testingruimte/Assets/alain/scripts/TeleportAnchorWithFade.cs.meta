@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4f4952c69957f9941ab8caf36fdb76d0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_InteractionManager: {instanceID: 0}
+  - m_CustomReticle: {fileID: 8656087483511947524, guid: 54f12f85c5145074280f79e2bd12b088,
+      type: 3}
+  - m_TeleportationProvider: {instanceID: 0}
+  - m_TeleportAnchorTransform: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
