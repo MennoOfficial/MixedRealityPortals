@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2411927130756465368}
   - component: {fileID: 7853041463228589897}
   - component: {fileID: 6966622280923721666}
-  - component: {fileID: 8273353631981434743}
   m_Layer: 0
   m_Name: scherm
   m_TagString: Untagged
@@ -240,22 +239,6 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
---- !u!114 &8273353631981434743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4138844592285832822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84f816d1d93547347a632c7e8b4217ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playAtStart: 0
-  videoMaterial: {fileID: 0}
-  videoClips:
-  - {fileID: 32900000, guid: d069cd87e3d6eec4fb0fcfe22fa5af81, type: 3}
 --- !u!1001 &6673493068850335608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -266,7 +249,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 23e5f126029186c47a301cb4c506b280, type: 3}
       propertyPath: m_Name
-      value: tv1
+      value: televisie
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 23e5f126029186c47a301cb4c506b280, type: 3}
       propertyPath: m_LocalScale.x

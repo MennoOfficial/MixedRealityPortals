@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Video;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class bakeryEnter : TeleportationArea
 {
     private FadeCanvas fadeCanvas = null;
     private GameObject player;
+    private GameObject bakkersTv;
 
     protected override void Awake()
     {
         base.Awake();
         fadeCanvas = FindObjectOfType<FadeCanvas>();
         player = GameObject.FindWithTag("speler");
+        bakkersTv = GameObject.FindWithTag("bakkerstv");
     }
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
@@ -31,6 +34,8 @@ public class bakeryEnter : TeleportationArea
         player.gameObject.transform.position = new Vector3(70f, 4.9f, 55f);
         player.gameObject.transform.eulerAngles = new Vector3(0, -90, 0);
         Debug.Log("HI");
+        PlayVideo bakkersfilm = bakkersTv.GetComponent<PlayVideo>();
+        bakkersfilm.Play();
     }
 
     protected override void OnActivated(ActivateEventArgs args)

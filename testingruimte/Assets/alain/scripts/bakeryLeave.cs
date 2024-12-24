@@ -8,12 +8,14 @@ public class bakeryLeave : TeleportationArea
 {
     private FadeCanvas fadeCanvas = null;
     private GameObject player;
+    private GameObject bakkersTv;
 
     protected override void Awake()
     {
         base.Awake();
         fadeCanvas = FindObjectOfType<FadeCanvas>();
         player = GameObject.FindWithTag("speler");
+        bakkersTv = GameObject.FindWithTag("bakkerstv");
     }
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
@@ -28,9 +30,11 @@ public class bakeryLeave : TeleportationArea
     {
         if (teleportTrigger == TeleportTrigger.OnSelectExited)
             StartCoroutine(FadeSequence(base.OnSelectExited, args));
-        player.gameObject.transform.position = new Vector3(-43f, 2f, 45f);
+        player.gameObject.transform.position = new Vector3(-43f, 1f, 45f);
         player.gameObject.transform.eulerAngles = new Vector3(0, 90, 0);
         Debug.Log("BYE");
+        PlayVideo bakkersfilm = bakkersTv.GetComponent<PlayVideo>();
+        bakkersfilm.Stop();
     }
 
     protected override void OnActivated(ActivateEventArgs args)
