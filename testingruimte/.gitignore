@@ -75,3 +75,4 @@ crashlytics-build.properties
 
 # alle (or all) mp4 files
 *mp4
+*mp4.meta
